@@ -31,52 +31,55 @@
 27    <uses-permission android:name="android.permission.BLUETOOTH" />
 27-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:23:5-68
 27-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:23:22-65
-28
-29    <application
-29-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:25:5-46:19
-30        android:allowBackup="true"
-30-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:26:9-35
-31        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-31-->[com.android.support:support-compat:28.0.0] /Users/aaaaaa/.gradle/caches/transforms-2/files-2.1/6f81025bcc413a318d3343580ec76047/support-compat-28.0.0/AndroidManifest.xml:22:18-91
-32        android:debuggable="true"
-33        android:icon="@drawable/ic_launcher"
-33-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:27:9-45
-34        android:label="@string/app_name"
-34-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:28:9-41
-35        android:testOnly="true"
-36        android:theme="@style/AppTheme" >
-36-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:29:9-40
-37        <activity
-37-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:30:9-37:20
-38            android:name="com.example.android.bluetoothadvertisements.MainActivity"
-38-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:31:13-41
-39            android:label="@string/app_name" >
-39-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:32:13-45
-40            <intent-filter>
-40-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:33:13-36:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:34:17-69
-41-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:34:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:35:17-77
-43-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:35:27-74
-44            </intent-filter>
-45        </activity>
-46
-47        <!--
-48             Service to handle BLE Advertising - Using a service allows advertising to continue
-49             when the app is no longer on screen in a reliable manner.
-50        -->
-51        <service
-51-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:41:9-45:19
-52            android:name="com.example.android.bluetoothadvertisements.AdvertiserService"
-52-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:42:13-46
-53            android:enabled="true"
-53-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:43:13-35
-54            android:exported="false" >
-54-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:44:13-37
-55        </service>
-56    </application>
-57
-58</manifest>
+28    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+28-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:25:5-77
+28-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:25:22-74
+29
+30    <application
+30-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:27:5-48:19
+31        android:allowBackup="true"
+31-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:28:9-35
+32        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+32-->[com.android.support:support-compat:28.0.0] /Users/aaaaaa/.gradle/caches/transforms-2/files-2.1/6f81025bcc413a318d3343580ec76047/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+33        android:debuggable="true"
+34        android:icon="@drawable/ic_launcher"
+34-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:29:9-45
+35        android:label="@string/app_name"
+35-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:30:9-41
+36        android:testOnly="true"
+37        android:theme="@style/AppTheme" >
+37-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:31:9-40
+38        <activity
+38-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:32:9-39:20
+39            android:name="com.example.android.bluetoothadvertisements.MainActivity"
+39-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:33:13-41
+40            android:label="@string/app_name" >
+40-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:34:13-45
+41            <intent-filter>
+41-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:35:13-38:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:36:17-69
+42-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:36:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:37:17-77
+44-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:37:27-74
+45            </intent-filter>
+46        </activity>
+47
+48        <!--
+49             Service to handle BLE Advertising - Using a service allows advertising to continue
+50             when the app is no longer on screen in a reliable manner.
+51        -->
+52        <service
+52-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:43:9-47:19
+53            android:name="com.example.android.bluetoothadvertisements.AdvertiserService"
+53-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:44:13-46
+54            android:enabled="true"
+54-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:45:13-35
+55            android:exported="false" >
+55-->/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/AndroidManifest.xml:46:13-37
+56        </service>
+57    </application>
+58
+59</manifest>

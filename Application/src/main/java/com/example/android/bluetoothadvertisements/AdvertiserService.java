@@ -194,8 +194,8 @@ public class AdvertiserService extends Service {
         dataBuilder.setIncludeDeviceName(true);
 
         /* For example - this will cause advertising to fail (exceeds size limit) */
-        //String failureData = "asdghkajsghalkxcjhfa;sghtalksjcfhalskfjhasldkjfhdskf";
-        //dataBuilder.addServiceData(Constants.Service_UUID, failureData.getBytes());
+//        String failureData = "asdghkajsghalkxcjhfa;sghtalksjcfhalskfjhasldkjfhdskf";
+//        dataBuilder.addServiceData(Constants.Service_UUID, failureData.getBytes());
 
         return dataBuilder.build();
     }

@@ -44,26 +44,26 @@ public class MainActivity extends FragmentActivity {
             mBluetoothAdapter = ((BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE))
                     .getAdapter();
 
-            // Is Bluetooth supported on this device?
+            // このデバイスがBluetoothに対応しているか？
             if (mBluetoothAdapter != null) {
 
-                // Is Bluetooth turned on?
+                // Bluetoothはオンになっているか？
                 if (mBluetoothAdapter.isEnabled()) {
 
-                    // Are Bluetooth Advertisements supported on this device?
+                    // このデバイスが、Bluetoothアドバタイジングに対応しているか？
                     if (mBluetoothAdapter.isMultipleAdvertisementSupported()) {
 
-                        // Everything is supported and enabled, load the fragments.
+                        // 全てがサポートされ有効になっているので、フラグメントを読み込む
                         setupFragments();
 
                     } else {
 
-                        // Bluetooth Advertisements are not supported.
+                        // Bluetooth アドバタイズメントに対応していない
                         showErrorText(R.string.bt_ads_not_supported);
                     }
                 } else {
 
-                    // Prompt user to turn on Bluetooth (logic continues in onActivityResult()).
+                    // Bluetoothを
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBtIntent, Constants.REQUEST_ENABLE_BT);
                 }
