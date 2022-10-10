@@ -16,13 +16,18 @@
 
 package com.example.android.bluetoothadvertisements;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +37,9 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity {
 
     private BluetoothAdapter mBluetoothAdapter;
+    private static final int REQUEST_PERMISSIONS = 2;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +53,24 @@ public class MainActivity extends FragmentActivity {
 
             // このデバイスがBluetoothに対応しているか？
             if (mBluetoothAdapter != null) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                    requestPermissions.add(Manifest.permission.BLUETOOTH_SCAN);
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION
+                    }, REQUEST_PERMISSIONS);
+                }
 
                 // Bluetoothはオンになっているか？
                 if (mBluetoothAdapter.isEnabled()) {
 
                     // このデバイスが、Bluetoothアドバタイジングに対応しているか？
                     if (mBluetoothAdapter.isMultipleAdvertisementSupported()) {
-
+//                        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADVERTISE) != PackageManager.PERMISSION_GRANTED) {
+////                            requestPermissions.add(Manifest.permission.BLUETOOTH_ADVERTISE);
+//                            requestPermissions(new String[]{Manifest.permission.BLUETOOTH_ADVERTISE
+//                            }, REQUEST_PERMISSIONS);
                         // 全てがサポートされ有効になっているので、フラグメントを読み込む
                         setupFragments();
+//                    }
 
                     } else {
 
@@ -63,15 +79,27 @@ public class MainActivity extends FragmentActivity {
                     }
                 } else {
 
-                    // Bluetoothを
+                    // Bluetoothをオンにすることを要求する
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBtIntent, Constants.REQUEST_ENABLE_BT);
                 }
             } else {
 
-                // Bluetooth is not supported.
+                // Bluetoothには対応していません。
                 showErrorText(R.string.bt_not_supported);
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_PERMISSIONS) {
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+//                finish();
+            }
+        }else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
@@ -83,21 +111,21 @@ public class MainActivity extends FragmentActivity {
 
                 if (resultCode == RESULT_OK) {
 
-                    // Bluetooth is now Enabled, are Bluetooth Advertisements supported on
+                    // Bluetoothが使用不可になったが、Bluetoothアドバタイズに対応しているか？
                     // this device?
                     if (mBluetoothAdapter.isMultipleAdvertisementSupported()) {
 
-                        // Everything is supported and enabled, load the fragments.
+                        // 全てがサポートされ有効になっているので、フラグメントを読み込む
                         setupFragments();
 
                     } else {
 
-                        // Bluetooth Advertisements are not supported.
+                        // Bluetooth Advertisementsはサポートされていません
                         showErrorText(R.string.bt_ads_not_supported);
                     }
                 } else {
 
-                    // User declined to enable Bluetooth, exit the app.
+                    // ユーザーがBluetoothの有効化を拒否した場合は、アプリを終了してください。
                     Toast.makeText(this, R.string.bt_not_enabled_leaving,
                             Toast.LENGTH_SHORT).show();
                     finish();
@@ -112,7 +140,7 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         ScannerFragment scannerFragment = new ScannerFragment();
-        // Fragments can't access system services directly, so pass it the BluetoothAdapter
+        // フラグメントはシステムサービスに直接アクセスできないので、BluetoothAdapterを渡します。
         scannerFragment.setBluetoothAdapter(mBluetoothAdapter);
         transaction.replace(R.id.scanner_fragment_container, scannerFragment);
 

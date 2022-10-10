@@ -161,7 +161,7 @@ public class AdvertiserService extends Service {
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentIntent(pendingIntent)
             .build();
-        startForeground(FOREGROUND_NOTIFICATION_ID, n);
+//        startForeground(FOREGROUND_NOTIFICATION_ID, n);
     }
 
     /**
