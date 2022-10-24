@@ -181,21 +181,21 @@ public class AdvertiserService extends Service {
     private AdvertiseData buildAdvertiseData() {
 
         /**
-         * Note: There is a strict limit of 31 Bytes on packets sent over BLE Advertisements.
-         *  This includes everything put into AdvertiseData including UUIDs, device info, &
-         *  arbitrary service or manufacturer data.
-         *  Attempting to send packets over this limit will result in a failure with error code
-         *  AdvertiseCallback.ADVERTISE_FAILED_DATA_TOO_LARGE. Catch this error in the
-         *  onStartFailure() method of an AdvertiseCallback implementation.
+         * Note: BLE広告で送信されるパケットには31Byteという厳しい制限があります。
+         *  これには、UUID、デバイス情報、任意のサービスやメーカーのデータなど、
+         *  AdvertiseDataに入れられたすべてのものが含まれます。
+         *  この制限を超えたパケットを送信しようとすると、エラーコードAdvertiseCallbackで失敗します。
+         *  advertise_failed_data_too_large. このエラーをキャッチするには
+         *  AdvertiseCallback 実装の onStartFailure() メソッドでこのエラーをキャッチしてください。
          */
 
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
         dataBuilder.addServiceUuid(Constants.Service_UUID);
         dataBuilder.setIncludeDeviceName(true);
 
-        /* For example - this will cause advertising to fail (exceeds size limit) */
-//        String failureData = "asdghkajsghalkxcjhfa;sghtalksjcfhalskfjhasldkjfhdskf";
-//        dataBuilder.addServiceData(Constants.Service_UUID, failureData.getBytes());
+        // アドバタイズに含むデータの設定(success)
+        String failureData = "abc";
+        dataBuilder.addServiceData(Constants.Service_UUID, failureData.getBytes());
 
         return dataBuilder.build();
     }
