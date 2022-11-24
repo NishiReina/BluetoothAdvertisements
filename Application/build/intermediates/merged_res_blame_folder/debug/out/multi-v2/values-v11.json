@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/res/values-v11/template-styles.xml",
+                    "source": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/src/main/res/values-v11/template-styles.xml",
                     "from": {
                         "startLines": "19",
                         "startColumns": "4",

@@ -16,7 +16,20 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
 
 /**
  * Manages BLE Advertising independent of the main app.
@@ -28,6 +41,10 @@ public class AdvertiserService extends Service {
     private static final String TAG = AdvertiserService.class.getSimpleName();
 
     private static final int FOREGROUND_NOTIFICATION_ID = 1;
+
+    private Handler handler = new Handler();
+    private String urlIpText = "https://attendanceble.onrender.com/api/passcodeInfo/";
+    protected String ip = "";
 
     /**
      * A global variable to let AdvertiserFragment check if the Service is running without needing
@@ -59,9 +76,38 @@ public class AdvertiserService extends Service {
 
     @Override
     public void onCreate() {
+
+        Thread thread = new Thread(new Runnable() {
+            String response = "";
+            @Override
+            public void run() {
+                try {
+                    response = getAPI();
+                    if(response == ""){
+                        ip = "abcdefg";
+                    }else {
+                        JSONArray json2 = new JSONArray(response);
+                        JSONObject json3 = json2.getJSONObject(0);
+                        ip = json3.getString("passcode");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        startAdvertising();
+                        Log.d("run",ip);
+                    }
+                });
+            }
+        });
+        thread.start();
+
+
         running = true;
         initialize();
-        startAdvertising();
+//        startAdvertising();
         setTimeout();
         super.onCreate();
     }
@@ -158,7 +204,7 @@ public class AdvertiserService extends Service {
         Notification n = new Notification.Builder(this)
             .setContentTitle("Advertising device via Bluetooth")
             .setContentText("This device is discoverable to others nearby.")
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.tile)
             .setContentIntent(pendingIntent)
             .build();
 //        startForeground(FOREGROUND_NOTIFICATION_ID, n);
@@ -174,6 +220,7 @@ public class AdvertiserService extends Service {
             mAdvertiseCallback = null;
         }
     }
+
 
     /**
      * Returns an AdvertiseData object which includes the Service UUID and Device Name.
@@ -194,8 +241,10 @@ public class AdvertiserService extends Service {
         dataBuilder.setIncludeDeviceName(true);
 
         // アドバタイズに含むデータの設定(success)
-        String failureData = "abc";
+//        passcode();
+        String failureData = ip;
         dataBuilder.addServiceData(Constants.Service_UUID, failureData.getBytes());
+        Log.d("buildAdvertiseData",ip);
 
         return dataBuilder.build();
     }
@@ -206,7 +255,7 @@ public class AdvertiserService extends Service {
      */
     private AdvertiseSettings buildAdvertiseSettings() {
         AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();
-        settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER);
+        settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY);
         settingsBuilder.setTimeout(0);
         return settingsBuilder.build();
     }
@@ -243,6 +292,59 @@ public class AdvertiserService extends Service {
         failureIntent.setAction(ADVERTISING_FAILED);
         failureIntent.putExtra(ADVERTISING_FAILED_EXTRA_CODE, errorCode);
         sendBroadcast(failureIntent);
+    }
+
+    public void passcode() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String response = "";
+                try {
+                    response = getAPI();
+                    JSONArray json2 = new JSONArray(response);
+                    JSONObject json3 = json2.getJSONObject(0);
+                    ip = json3.getString("passcode");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }
+
+    public String getAPI(){
+        HttpURLConnection urlConnection = null;
+        InputStream inputStream = null;
+        String result = "";
+        String str = "";
+        try {
+            URL url = new URL(urlIpText);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setConnectTimeout(10000);
+            urlConnection.setReadTimeout(10000);
+            urlConnection.addRequestProperty("User-Agent", "Android");
+            urlConnection.addRequestProperty("Accept-Language", Locale.getDefault().toString());
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(false);
+            urlConnection.connect();
+            int statusCode = urlConnection.getResponseCode();
+            if (statusCode == 200){
+                inputStream = urlConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+                result = bufferedReader.readLine();
+                while (result != null){
+                    str += result;
+                    result = bufferedReader.readLine();
+                }
+                bufferedReader.close();
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 
 }

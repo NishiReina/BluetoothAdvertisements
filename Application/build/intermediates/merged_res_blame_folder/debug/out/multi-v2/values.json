@@ -1,63 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
-                {
-                    "source": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "3,30,27,4,7,2,6,16,24,20,23,18,17,19,22,28,9,26,25,21,11,14,10,12,15,29,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "175,1763,1584,238,389,55,301,993,1401,1203,1353,1107,1058,1153,1301,1655,498,1526,1481,1249,616,857,542,689,922,1701,775",
-                        "endColumns": "62,84,70,61,107,119,87,64,79,45,47,45,48,49,51,45,43,57,44,51,72,64,73,85,70,61,81",
-                        "endOffsets": "233,1843,1650,295,492,170,384,1053,1476,1244,1396,1148,1102,1198,1348,1696,537,1579,1521,1296,684,917,611,770,988,1758,852"
-                    },
-                    "to": {
-                        "startLines": "269,270,271,273,274,275,276,277,278,279,280,291,292,293,294,295,296,297,299,300,301,302,303,304,305,306,307",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "17752,17815,17900,18032,18094,18202,18322,18410,18475,18555,18601,18887,18933,18982,19032,19084,19130,19174,19285,19330,19382,19455,19520,19594,19680,19751,19813",
-                        "endColumns": "62,84,70,61,107,119,87,64,79,45,47,45,48,49,51,45,43,57,44,51,72,64,73,85,70,61,81",
-                        "endOffsets": "17810,17895,17966,18089,18197,18317,18405,18470,18550,18596,18644,18928,18977,19027,19079,19125,19169,19227,19325,19377,19450,19515,19589,19675,19746,19808,19890"
-                    }
-                },
-                {
-                    "source": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/res/values/base-strings.xml",
-                    "from": {
-                        "startLines": "18,19",
-                        "startColumns": "4,4",
-                        "startOffsets": "647,708",
-                        "endLines": "18,28",
-                        "endColumns": "60,13",
-                        "endOffsets": "703,941"
-                    },
-                    "to": {
-                        "startLines": "272,281",
-                        "startColumns": "4,4",
-                        "startOffsets": "17971,18649",
-                        "endLines": "272,290",
-                        "endColumns": "60,13",
-                        "endOffsets": "18027,18882"
-                    }
-                },
-                {
-                    "source": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/res/values/template-styles.xml",
-                    "from": {
-                        "startLines": "24,20,22,27,29,34",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "768,651,713,849,878,1075",
-                        "endLines": "24,20,22,27,32,39",
-                        "endColumns": "51,60,53,27,12,12",
-                        "endOffsets": "815,707,762,872,1069,1348"
-                    },
-                    "to": {
-                        "startLines": "314,1690,1691,1699,1796,1800",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "20408,112039,112099,112824,120560,120756",
-                        "endLines": "314,1690,1691,1699,1799,1805",
-                        "endColumns": "50,59,52,26,12,12",
-                        "endOffsets": "20454,112094,112147,112846,120751,121029"
-                    }
-                },
                 {
                     "source": "/Users/aaaaaa/.gradle/caches/transforms-2/files-2.1/c736e09b9b8b0f5b17e0f48c980de4cc/appcompat-v7-28.0.0/res/values/values.xml",
                     "from": {
@@ -97,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "/Users/aaaaaa/Desktop/卒論/BluetoothAdvertisements/Application/src/main/res/values/template-dimens.xml",
+                    "source": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/src/main/res/values/template-dimens.xml",
                     "from": {
                         "startLines": "28,24,23,22,21,20,29",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -111,6 +56,61 @@
                         "startOffsets": "11780,11850,11893,11937,11982,12025,13710",
                         "endColumns": "69,42,43,44,42,41,67",
                         "endOffsets": "11845,11888,11932,11977,12020,12062,13773"
+                    }
+                },
+                {
+                    "source": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "3,30,27,4,7,2,6,16,24,20,23,18,17,19,22,28,9,26,25,21,11,14,10,12,15,29,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "175,1763,1584,238,389,55,301,993,1401,1203,1353,1107,1058,1153,1301,1655,498,1526,1481,1249,616,857,542,689,922,1701,775",
+                        "endColumns": "62,84,70,61,107,119,87,64,79,45,47,45,48,49,51,45,43,57,44,51,72,64,73,85,70,61,81",
+                        "endOffsets": "233,1843,1650,295,492,170,384,1053,1476,1244,1396,1148,1102,1198,1348,1696,537,1579,1521,1296,684,917,611,770,988,1758,852"
+                    },
+                    "to": {
+                        "startLines": "269,270,271,273,274,275,276,277,278,279,280,291,292,293,294,295,296,297,299,300,301,302,303,304,305,306,307",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "17752,17815,17900,18032,18094,18202,18322,18410,18475,18555,18601,18887,18933,18982,19032,19084,19130,19174,19285,19330,19382,19455,19520,19594,19680,19751,19813",
+                        "endColumns": "62,84,70,61,107,119,87,64,79,45,47,45,48,49,51,45,43,57,44,51,72,64,73,85,70,61,81",
+                        "endOffsets": "17810,17895,17966,18089,18197,18317,18405,18470,18550,18596,18644,18928,18977,19027,19079,19125,19169,19227,19325,19377,19450,19515,19589,19675,19746,19808,19890"
+                    }
+                },
+                {
+                    "source": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/src/main/res/values/base-strings.xml",
+                    "from": {
+                        "startLines": "18,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "647,708",
+                        "endLines": "18,28",
+                        "endColumns": "60,13",
+                        "endOffsets": "703,941"
+                    },
+                    "to": {
+                        "startLines": "272,281",
+                        "startColumns": "4,4",
+                        "startOffsets": "17971,18649",
+                        "endLines": "272,290",
+                        "endColumns": "60,13",
+                        "endOffsets": "18027,18882"
+                    }
+                },
+                {
+                    "source": "/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/src/main/res/values/template-styles.xml",
+                    "from": {
+                        "startLines": "24,20,22,27,29,34",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "768,651,713,849,878,1075",
+                        "endLines": "24,20,22,27,32,39",
+                        "endColumns": "51,60,53,27,12,12",
+                        "endOffsets": "815,707,762,872,1069,1348"
+                    },
+                    "to": {
+                        "startLines": "314,1690,1691,1699,1796,1800",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "20408,112039,112099,112824,120560,120756",
+                        "endLines": "314,1690,1691,1699,1799,1805",
+                        "endColumns": "50,59,52,26,12,12",
+                        "endOffsets": "20454,112094,112147,112846,120751,121029"
                     }
                 },
                 {

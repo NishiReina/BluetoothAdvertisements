@@ -16,18 +16,38 @@
 
 package com.example.android.bluetoothadvertisements;
 
+import android.app.Activity;
 import android.bluetooth.le.AdvertiseCallback;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Allows user to start & stop Bluetooth LE Advertising of their device.
@@ -38,6 +58,12 @@ public class AdvertiserFragment extends Fragment implements View.OnClickListener
      * Lets user toggle BLE Advertising.
      */
     private Switch mSwitch;
+    private Handler handler = new Handler();
+    private String nameAndType = "";
+    private String urlIpText = "https://attendanceble.onrender.com/api/passcodeInfo/";
+    private String ip = "";
+    private Button button;
+    private TextView textView;
 
     /**
      * Listens for notifications that the {@code AdvertiserService} has failed to start advertising.

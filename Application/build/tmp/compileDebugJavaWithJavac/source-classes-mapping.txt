@@ -1,6 +1,9 @@
 com/example/android/bluetoothadvertisements/AdvertiserService.java
  com.example.android.bluetoothadvertisements.AdvertiserService
  com.example.android.bluetoothadvertisements.AdvertiserService$1
+ com.example.android.bluetoothadvertisements.AdvertiserService$1$1
+ com.example.android.bluetoothadvertisements.AdvertiserService$2
+ com.example.android.bluetoothadvertisements.AdvertiserService$3
  com.example.android.bluetoothadvertisements.AdvertiserService$SampleAdvertiseCallback
 com/example/android/bluetoothadvertisements/AdvertiserFragment.java
  com.example.android.bluetoothadvertisements.AdvertiserFragment
