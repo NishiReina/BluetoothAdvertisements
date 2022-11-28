@@ -1,4 +1,4 @@
-#Thu Nov 24 18:43:29 JST 2022
+#Mon Nov 28 17:08:38 JST 2022
 base.2=/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
 path.2=9/classes.dex
 base.1=/Users/aaaaaa/Documents/iniad/BluetoothAdvertisements/Application/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex

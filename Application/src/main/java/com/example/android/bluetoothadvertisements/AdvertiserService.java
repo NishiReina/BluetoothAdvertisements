@@ -84,7 +84,7 @@ public class AdvertiserService extends Service {
                 try {
                     response = getAPI();
                     if(response == ""){
-                        ip = "abcdefg";
+                        ip = "abc";
                     }else {
                         JSONArray json2 = new JSONArray(response);
                         JSONObject json3 = json2.getJSONObject(0);
